@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 
-const client = new OpenAI({
-  apiKey: process.env.DEEPSEEK_API_KEY,
-  baseURL: "https://api.deepseek.com",
-});
+function getClient() {
+  return new OpenAI({
+    apiKey: process.env.DEEPSEEK_API_KEY ?? "placeholder",
+    baseURL: "https://api.deepseek.com",
+  });
+}
 
 const SYSTEM_PROMPT = `你是一个专业的学术论文格式化助手。用户会提供论文原文，你需要：
 
@@ -28,7 +30,7 @@ export async function POST(req: NextRequest) {
   const truncated = text.slice(0, 30000);
 
   try {
-    const completion = await client.chat.completions.create({
+    const completion = await getClient().chat.completions.create({
       model: "deepseek-chat",
       messages: [
         { role: "system", content: systemPrompt },

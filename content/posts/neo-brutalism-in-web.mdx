@@ -1,0 +1,122 @@
+---
+title: "Neo-Brutalism：粗糙即力量"
+date: "2026-05-10"
+excerpt: "从建筑暴力美学到 Web 设计风潮，解构 Neo-Brutalism 的核心设计语言，以及如何在前端工程中落地。"
+tags: ["设计", "CSS", "前端"]
+category: "编程"
+published: true
+coverColor: "bg-pink-200"
+---
+
+# Neo-Brutalism：粗糙即力量
+
+在设计趋势不断走向圆润、模糊和无感知的今天，**Neo-Brutalism** 像一记耳光。
+
+## 什么是 Brutalism？
+
+建筑上的 Brutalism（粗野主义）诞生于二战后，以裸露混凝土、巨大体量、拒绝装饰为特征。它不是要"好看"，它是要**诚实**。
+
+> 把结构暴露出来。不要藏。
+
+Web Brutalism 借用了这种美学——原始 HTML 感、等宽字体、无修饰的界面。
+
+## Neo-Brutalism 是什么？
+
+Neo-Brutalism 是 Brutalism 的现代变体，在保留粗糙感的同时，加入了更强的视觉系统：
+
+| 特征 | 描述 |
+|------|------|
+| 粗黑边框 | 2-3px solid black，无圆角 |
+| 偏移阴影 | `box-shadow: 4px 4px 0 #000` |
+| 高饱和色块 | 亮黄、荧光绿、珊瑚红 |
+| 强字重 | font-weight: 700+，大号字 |
+| 硬边界 | 无渐变，无模糊，无圆角 |
+
+## 在 CSS/Tailwind 中实践
+
+### 基础卡片
+
+```css
+.card-brutal {
+  border: 2px solid black;
+  box-shadow: 4px 4px 0px black;
+  background: white;
+}
+
+.card-brutal:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px black;
+}
+```
+
+### 按钮
+
+```css
+.btn-brutal {
+  border: 2px solid black;
+  font-weight: 700;
+  padding: 8px 20px;
+  box-shadow: 4px 4px 0 black;
+  transition: all 0.1s;
+}
+
+.btn-brutal:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 black;
+}
+
+.btn-brutal:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 black;
+}
+```
+
+### 用 Tailwind 实现
+
+在 `tailwind.config.ts` 里扩展：
+
+```ts
+boxShadow: {
+  brutal: '4px 4px 0px 0px #000000',
+  'brutal-lg': '6px 6px 0px 0px #000000',
+}
+```
+
+然后直接用 `shadow-brutal` 类。
+
+## 配色原则
+
+Neo-Brutalism 的配色很讲究，不是随便撞色：
+
+1. **主色**：通常是亮黄 `#FFE500` 或荧光绿 `#00FF87`
+2. **黑色**：纯黑 `#000000`，不是灰色
+3. **背景**：纯白或浅灰，让色块突出
+4. **点缀色**：不超过 2 种
+
+强调：**不要加渐变，不要加阴影过渡，不要圆角**。
+
+## 字体选择
+
+- **Space Grotesk** — 几何感强，字重饱满
+- **DM Mono** — 等宽，粗野感十足
+- **Syne** — 有力量但不失优雅
+
+避免使用过于圆润的字体（如 Nunito、Poppins），会和风格打架。
+
+## 什么时候用
+
+Neo-Brutalism 适合：
+
+- 个人博客、作品集
+- 创意工具、开发者工具
+- 需要强烈品牌个性的产品
+
+不适合：
+
+- 企业级 SaaS（太激进）
+- 医疗、金融类（可信度诉求）
+- 内容密集型产品（视觉噪音大）
+
+---
+
+Neo-Brutalism 的核心哲学是**诚实**：不掩藏，不美化，直接告诉用户"这是个按钮，点它"。这种直接，在过度精致的 UI 世界里，反而成了一种个性。
