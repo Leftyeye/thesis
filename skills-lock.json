@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "imini-generate": {
+      "source": "imini-ai/imini-api-integration-skill",
+      "sourceType": "github",
+      "skillPath": "skills/imini-generate/SKILL.md",
+      "computedHash": "4618a2a11d8a7d51c86affa565e4cae543112aeef3a0d7e5fd9aeacd3c282da4"
+    }
+  }
+}
